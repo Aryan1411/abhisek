@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dr. Abhisek | General Physician & MD (Medicine) Portfolio</title>
+  <meta name="description" content="Portfolio website for Dr. Abhisek, General Physician and MD in Medicine. Primary care, chronic disease management, preventive health, and telemedicine consults." />
+  <meta name="theme-color" content="#0d9488" />
+  <link rel="canonical" href="https://example.com/" />
+
+  <meta property="og:title" content="Dr. Abhisek | General Physician & MD (Medicine)" />
+  <meta property="og:description" content="Primary care, chronic disease management, preventive health, and telemedicine consults." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://example.com/" />
+  <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'%3E%3Crect width='100%25' height='100%25' fill='%230d9488'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='48' fill='white'%3EDr. Abhisek%3C/text%3E%3C/svg%3E" />
+
+  <style>
+    :root {
+      --bg: #0b1014;
+      --card: #121a21;
+      --muted: #8fa3b6;
+      --text: #e8f1f8;
+      --brand: #0d9488;
+      --brand-2: #14b8a6;
+      --accent: #60a5fa;
+      --warning: #f59e0b;
+      --success: #22c55e;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 14px;
+    }
+    [data-theme="light"] {
+      --bg: #f7fafc;
+      --card: #ffffff;
+      --muted: #586b81;
+      --text: #0b1014;
+      --shadow: 0 8px 20px rgba(0,0,0,.08);
+    }
+    * { box-sizing: border-box }
+    html, body { margin:0; padding:0; }
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 80% -10%, rgba(20,184,166,.18), transparent), radial-gradient(900px 480px at -10% 10%, rgba(96,165,250,.15), transparent), var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
+    }
+    a { color: var(--brand-2); text-decoration: none }
+    a:hover { text-decoration: underline }
+    .container { width: min(1100px, 92%); margin-inline: auto; }
+
+    header.nav {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: saturate(140%) blur(10px);
+      background: color-mix(in oklab, var(--bg) 85%, transparent);
+      border-bottom: 1px solid color-mix(in oklab, var(--muted), transparent 70%);
+    }
+    .nav-inner {
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 14px 0;
+    }
+    .brand {
+      display:flex; gap:12px; align-items:center; text-decoration:none; color: var(--text);
+    }
+    .brand-badge {
+      width:38px; height:38px; border-radius:11px;
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+      display:grid; place-items:center; color:white; font-weight:800; box-shadow: var(--shadow);
+    }
+    nav ul { display:flex; gap:18px; list-style:none; padding:0; margin:0; }
+    nav a.btn {
+      background: color-mix(in oklab, var(--brand), #fff 6%);
+      color:#fff; padding:10px 14px; border-radius:10px; text-decoration:none; box-shadow: var(--shadow);
+    }
+    nav a.link { color: var(--text); opacity:.9; padding:8px 10px; border-radius:8px }
+    nav a.link:hover { background: color-mix(in oklab, var(--card), transparent 20%); text-decoration: none }
+    .actions { display:flex; gap:8px; align-items:center }
+    .icon-btn{ border:none; background: color-mix(in oklab, var(--card), transparent 30%); color:var(--text); border-radius:10px; padding:8px 10px; cursor:pointer }
+
+    .mobile-toggle { display:none }
+    @media (max-width: 820px){
+      nav ul { display:none }
+      .mobile-toggle{ display:inline-flex }
+      .mobile-menu { display:none; padding:10px 0 18px }
+      .mobile-menu.open { display:block }
+      .mobile-menu a { display:block; padding:10px 0; color: var(--text) }
+      .mobile-menu .btn { display:inline-block; margin-top:8px }
+    }
+
+    .hero {
+      padding: 64px 0 32px;
+    }
+    .hero-grid {
+      display:grid; gap:32px; grid-template-columns: 1.2fr .8fr;
+    }
+    @media (max-width: 920px){
+      .hero-grid{ grid-template-columns: 1fr }
+    }
+    .tag {
+      display:inline-flex; gap:8px; align-items:center;
+      background: color-mix(in oklab, var(--card), transparent 20%);
+      color: var(--text); padding: 8px 12px; border-radius: 999px; border:1px solid color-mix(in oklab, var(--brand), transparent 65%);
+      font-size: 14px;
+    }
+    h1 {
+      font-size: clamp(28px, 3.6vw, 44px);
+      line-height: 1.15; margin: 14px 0 10px;
+    }
+    .lead { font-size: clamp(16px, 1.5vw, 18px); color: var(--muted) }
+    .cta { display:flex; gap:12px; margin-top:18px; flex-wrap: wrap }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      color:white; border:none; padding:12px 16px; border-radius:12px; cursor:pointer; box-shadow: var(--shadow)
+    }
+    .btn-secondary {
+      background: color-mix(in oklab, var(--card), transparent 15%);
+      border:1px solid color-mix(in oklab, var(--muted), transparent 60%);
+      color: var(--text); padding: 12px 16px; border-radius:12px; cursor:pointer
+    }
+    .stat-row { display:flex; gap:16px; margin-top:20px; flex-wrap: wrap }
+    .stat {
+      flex:1 1 180px; background: color-mix(in oklab, var(--card), transparent 10%);
+      border:1px solid color-mix(in oklab, var(--muted), transparent 70%);
+      border-radius: var(--radius); padding:16px;
+    }
+    .muted { color: var(--muted) }
+
+    .card {
+      background: color-mix(in oklab, var(--card), transparent 8%);
+      border:1px solid color-mix(in oklab, var(--muted), transparent 70%);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+    section { padding: 46px 0 }
+    section h2 { font-size: clamp(22px, 2.2vw, 28px); margin: 0 0 14px }
+
+    .grid { display:grid; gap:16px }
+    .grid-3 { grid-template-columns: repeat(3, 1fr) }
+    .grid-2 { grid-template-columns: repeat(2, 1fr) }
+    @media (max-width: 900px){ .grid-3{ grid-template-columns: 1fr } .grid-2{ grid-template-columns: 1fr } }
+
+    .service .title{ font-weight: 700; margin: 8px 0 6px }
+    .service .desc{ color: var(--muted); font-size: 15px }
+
+    .timeline { position:relative; }
+    .timeline::before {
+      content:""; position:absolute; left: 10px; top: 0; bottom: 0;
+      width: 2px; background: color-mix(in oklab, var(--muted), transparent 60%);
+    }
+    .tl-item { position:relative; padding-left: 34px; margin-bottom: 18px }
+    .tl-item::before {
+      content:""; position:absolute; left: 4px; top: 6px; width:14px; height:14px; border-radius:50%;
+      background: linear-gradient(135deg, var(--brand), var(--accent)); box-shadow: 0 0 0 3px color-mix(in oklab, var(--brand), transparent 70%);
+    }
+
+    .faq details {
+      background: color-mix(in oklab, var(--card), transparent 10%);
+      border:1px solid color-mix(in oklab, var(--muted), transparent 70%);
+      border-radius: 12px; padding: 12px 14px;
+    }
+    .faq details summary { cursor:pointer; font-weight: 600 }
+    .faq details + details { margin-top: 10px }
+
+    .testi { display:flex; gap:12px; align-items:flex-start }
+    .avatar {
+      width:42px; height:42px; border-radius:50%;
+      background: linear-gradient(135deg, var(--accent), var(--brand));
+      display:grid; place-items:center; color:white; font-weight:700
+    }
+
+    .contact-grid { display:grid; gap:16px; grid-template-columns: 1fr 1fr }
+    @media (max-width: 900px){ .contact-grid{ grid-template-columns: 1fr } }
+    .form-row { display:grid; grid-template-columns: 1fr 1fr; gap:12px }
+    .form-row + .form-row { margin-top: 10px }
+    label { display:block; font-weight:600; font-size: 14px; margin-bottom: 6px }
+    input, select, textarea {
+      width:100%; padding:12px 12px; border-radius:10px; border:1px solid color-mix(in oklab, var(--muted), transparent 60%);
+      background: color-mix(in oklab, var(--card), transparent 5%); color: var(--text)
+    }
+    textarea { min-height: 110px; resize: vertical }
+    .small { font-size: 13px }
+    .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      padding:2px 6px; border-radius:6px; border:1px solid color-mix(in oklab, var(--muted), transparent 50%); background: color-mix(in oklab, var(--card), transparent 20%) }
+
+    footer {
+      border-top:1px solid color-mix(in oklab, var(--muted), transparent 70%);
+      padding: 20px 0; color: var(--muted);
+    }
+
+    .pill { display:inline-flex; gap:8px; align-items:center; padding:6px 10px; border-radius: 999px; background: color-mix(in oklab, var(--card), transparent 15%); border:1px solid color-mix(in oklab, var(--muted), transparent 65%) }
+    .icons-row { display:flex; gap:10px; flex-wrap: wrap }
+    .sr-only{ position:absolute !important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0 }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Physician",
+    "name": "Dr. Abhisek",
+    "description": "General Physician and MD in Medicine offering primary care, preventive health, and chronic disease management.",
+    "medicalSpecialty": ["PrimaryCare", "InternalMedicine", "ChronicCare", "PreventiveMedicine"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Your City",
+      "addressRegion": "Your State",
+      "addressCountry": "IN"
+    },
+    "email": "mailto:appointments@abhisekmed.com",
+    "telephone": "+91-98765-43210",
+    "url": "https://example.com/",
+    "sameAs": [
+      "https://www.linkedin.com/in/abhisek-md",
+      "https://maps.google.com/?q=Your+Clinic+Address"
+    ],
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:30", "closes": "18:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "14:00" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="sr-only" href="#main">Skip to content</a>
+  <header class="nav" role="banner" aria-label="Top Navigation">
+    <div class="container nav-inner">
+      <a class="brand" href="#" aria-label="Homepage - Dr. Abhisek">
+        <span class="brand-badge" aria-hidden="true">A</span>
+        <span>
+          <strong>Dr. Abhisek</strong>
+          <div class="small muted">General Physician • MD (Medicine)</div>
+        </span>
+      </a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a class="link" href="#about">About</a></li>
+          <li><a class="link" href="#services">Services</a></li>
+          <li><a class="link" href="#experience">Experience</a></li>
+          <li><a class="link" href="#testimonials">Testimonials</a></li>
+          <li><a class="link" href="#contact">Contact</a></li>
+          <li><a class="btn" href="#appointment">Book</a></li>
+        </ul>
+      </nav>
+      <div class="actions">
+        <button class="icon-btn" id="themeToggle" title="Toggle theme" aria-label="Toggle theme">
+          <span aria-hidden="true">🌓</span>
+        </button>
+        <button class="icon-btn mobile-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+    <div class="container mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile menu">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#experience">Experience</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+      <a class="btn" href="#appointment">Book Appointment</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="tag">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M8 7a4 4 0 1 1 8 0v2h2a2 2 0 0 1 2 2v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4v-6a2 2 0 0 1 2-2h2V7z" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M12 11v4M10 13h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            Caring for every heartbeat
+          </span>
+          <h1>Trusted General Physician & MD in Medicine</h1>
+          <p class="lead">I’m Dr. Abhisek, a patient-centered internist providing evidence-based primary care, preventive health checkups, and chronic disease management for adults and seniors. In-clinic and telemedicine consultations available.</p>
+          <div class="cta">
+            <a href="#appointment" class="btn-primary">Book Appointment</a>
+            <button class="btn-secondary" id="printProfile">Download Profile (PDF)</button>
+            <a class="btn-secondary" href="tel:+919876543210" aria-label="Call now">Call: +91 98765 43210</a>
+          </div>
+          <div class="stat-row">
+            <div class="stat">
+              <div class="muted small">Years of Practice</div>
+              <div style="font-size:22px; font-weight:800">10+</div>
+            </div>
+            <div class="stat">
+              <div class="muted small">Patients Served</div>
+              <div style="font-size:22px; font-weight:800">8,000+</div>
+            </div>
+            <div class="stat">
+              <div class="muted small">Avg. Rating</div>
+              <div style="font-size:22px; font-weight:800">4.9/5</div>
+            </div>
+          </div>
+          <div style="margin-top:14px" class="small muted">MBBS • MD (Internal Medicine) • Adult Primary Care • Telemedicine</div>
+        </div>
+        <div>
+          <div class="card">
+            <h3 style="margin:0 0 8px">Clinic at a glance</h3>
+            <div class="icons-row" aria-label="Key info">
+              <span class="pill">Mon–Fri: 9:30 AM – 6:00 PM</span>
+              <span class="pill">Sat: 10:00 AM – 2:00 PM</span>
+              <span class="pill">Telemedicine</span>
+            </div>
+            <div style="margin-top:10px" class="muted small">
+              Address: 123 Health Avenue, Your City, IN
+            </div>
+            <div style="margin-top:10px; display:grid; gap:8px">
+              <a class="btn-secondary" href="https://maps.google.com/?q=123+Health+Avenue+Your+City" target="_blank" rel="noopener">Open in Maps</a>
+              <a class="btn-secondary" href="mailto:appointments@abhisekmed.com">appointments@abhisekmed.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" aria-labelledby="about-title">
+      <div class="container grid grid-2">
+        <div class="card">
+          <h2 id="about-title">About Dr. Abhisek</h2>
+          <p>I am a board-certified general physician with an MD in Internal Medicine. My practice focuses on comprehensive adult care—acute illnesses, preventive medicine, and long-term management of conditions like diabetes, hypertension, thyroid disorders, asthma, and heart disease.</p>
+          <p>I believe in clear communication and shared decision-making. Every treatment plan is tailored to your goals, lifestyle, and the latest clinical guidelines.</p>
+          <div class="icons-row" style="margin-top:8px">
+            <span class="pill">MBBS</span>
+            <span class="pill">MD (Medicine)</span>
+            <span class="pill">ACLS/BLS Certified</span>
+            <span class="pill">Fluent: English • Hindi</span>
+          </div>
+        </div>
+        <div class="card">
+          <h2>Areas of Interest</h2>
+          <ul class="muted" style="margin:0 0 8px 18px">
+            <li>Diabetes & Hypertension clinics</li>
+            <li>Preventive checkups & lifestyle counseling</li>
+            <li>Infections, fever, respiratory care</li>
+            <li>Geriatric medicine and vaccination reviews</li>
+            <li>Telehealth for follow-ups and second opinions</li>
+          </ul>
+          <div class="small muted">Note: For emergencies, dial your local emergency number immediately.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" aria-labelledby="services-title">
+      <div class="container">
+        <h2 id="services-title">Clinical Services</h2>
+        <div class="grid grid-3">
+          <div class="card service">
+            <div class="title">Primary Care & Checkups</div>
+            <div class="desc">Annual physicals, wellness screenings, blood tests, and vaccination updates.</div>
+          </div>
+          <div class="card service">
+            <div class="title">Chronic Disease Management</div>
+            <div class="desc">Personalized plans for diabetes, hypertension, thyroid, COPD/asthma, and lipid disorders.</div>
+          </div>
+          <div class="card service">
+            <div class="title">Acute Illness Care</div>
+            <div class="desc">Fever, infections, allergies, digestive issues, headaches, and minor injuries.</div>
+          </div>
+          <div class="card service">
+            <div class="title">Preventive & Lifestyle Medicine</div>
+            <div class="desc">Diet, exercise, sleep hygiene, and stress management for long-term health.</div>
+          </div>
+          <div class="card service">
+            <div class="title">Telemedicine Consults</div>
+            <div class="desc">Video/phone consultations with e-prescriptions and lab coordination.</div>
+          </div>
+          <div class="card service">
+            <div class="title">Care Coordination</div>
+            <div class="desc">Referrals and follow-ups with specialists and diagnostic services.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" aria-labelledby="experience-title">
+      <div class="container grid grid-2">
+        <div class="card">
+          <h2 id="experience-title">Experience</h2>
+          <div class="timeline">
+            <div class="tl-item">
+              <strong>Consultant Physician</strong> — City Multispeciality Hospital
+              <div class="small muted">2019 – Present</div>
+              <div class="small">Outpatient & inpatient care, chronic clinics, ICU rounds, and DNB mentorship.</div>
+            </div>
+            <div class="tl-item">
+              <strong>Senior Resident (Medicine)</strong> — Teaching Hospital
+              <div class="small muted">2016 – 2019</div>
+              <div class="small">Internal medicine rotations across cardiology, pulmonology, and endocrinology.</div>
+            </div>
+            <div class="tl-item">
+              <strong>Junior Resident</strong> — Government Medical College
+              <div class="small muted">2014 – 2016</div>
+              <div class="small">Emergency and ward management, procedures, and clinical audits.</div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <h2>Education & Memberships</h2>
+          <ul class="muted" style="margin:0 0 8px 18px">
+            <li>MD (Internal Medicine) — University of Health Sciences</li>
+            <li>MBBS — State Medical College</li>
+            <li>Member — Association of Physicians of India (API)</li>
+            <li>Member — Indian Medical Association (IMA)</li>
+          </ul>
+          <div class="icons-row" style="margin-top:8px">
+            <span class="pill">Reg. No: ABC/12345</span>
+            <span class="pill">MCI Verified</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="resources" aria-labelledby="resources-title">
+      <div class="container grid grid-2">
+        <div class="card faq">
+          <h2 id="resources-title">Patient Resources (FAQ)</h2>
+          <details>
+            <summary>What should I bring to my first visit?</summary>
+            <div class="muted small">Bring a government ID, previous prescriptions, lab reports, and a list of current medications with doses.</div>
+          </details>
+          <details>
+            <summary>Do you offer home sample collection?</summary>
+            <div class="muted small">Yes, partnered labs can collect samples at home upon request.</div>
+          </details>
+          <details>
+            <summary>How do teleconsultations work?</summary>
+            <div class="muted small">After booking, you’ll receive a video link and payment instructions. E-prescriptions are shared post-consult.</div>
+          </details>
+          <details>
+            <summary>Payment methods accepted?</summary>
+            <div class="muted small">UPI, cards, and cash are accepted at the clinic; UPI for telemedicine.</div>
+          </details>
+        </div>
+        <div class="card">
+          <h2>Downloads</h2>
+          <p class="small muted">Print an information sheet for your records or to share with family.</p>
+          <button class="btn-primary" id="printInfo">Print Info Sheet</button>
+          <div style="margin-top:10px" class="small muted">Tip: On desktop, press <span class="kbd">Ctrl</span> + <span class="kbd">P</span> (or <span class="kbd">Cmd</span> + <span class="kbd">P</span>) to save as PDF.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" aria-labelledby="testi-title">
+      <div class="container">
+        <h2 id="testi-title">Patient Testimonials</h2>
+        <div class="grid grid-3">
+          <div class="card testi">
+            <div class="avatar" aria-hidden="true">M</div>
+            <div>
+              <strong>Meera S.</strong>
+              <div class="small muted">Diabetes follow-up</div>
+              <p style="margin:6px 0 0">Clear explanations and practical advice. My sugar control has improved significantly.</p>
+            </div>
+          </div>
+          <div class="card testi">
+            <div class="avatar" aria-hidden="true">R</div>
+            <div>
+              <strong>Rahul K.</strong>
+              <div class="small muted">Hypertension care</div>
+              <p style="margin:6px 0 0">Very thorough consultation. Appreciate the focus on lifestyle along with medications.</p>
+            </div>
+          </div>
+          <div class="card testi">
+            <div class="avatar" aria-hidden="true">A</div>
+            <div>
+              <strong>Anita D.</strong>
+              <div class="small muted">Telemedicine</div>
+              <p style="margin:6px 0 0">Seamless online appointment with prompt prescription and follow-up labs.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="appointment" aria-labelledby="appointment-title">
+      <div class="container contact-grid">
+        <div class="card">
+          <h2 id="appointment-title">Book an Appointment</h2>
+          <form id="apptForm" novalidate>
+            <div class="form-row">
+              <div>
+                <label for="name">Full name</label>
+                <input id="name" name="name" autocomplete="name" required placeholder="Your name" />
+              </div>
+              <div>
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" autocomplete="tel" required placeholder="+91 ..." />
+              </div>
+            </div>
+            <div class="form-row">
+              <div>
+                <label for="email">Email (optional)</label>
+                <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" />
+              </div>
+              <div>
+                <label for="type">Consult type</label>
+                <select id="type" name="type">
+                  <option>In-Clinic</option>
+                  <option>Telemedicine</option>
+                  <option>Follow-up</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div>
+                <label for="date">Preferred date</label>
+                <input id="date" type="date" name="date" />
+              </div>
+              <div>
+                <label for="time">Preferred time</label>
+                <input id="time" type="time" name="time" />
+              </div>
+            </div>
+            <div style="margin-top:10px">
+              <label for="reason">Reason/Notes</label>
+              <textarea id="reason" name="reason" placeholder="Briefly describe your concern"></textarea>
+            </div>
+            <div class="cta" style="margin-top:14px">
+              <button type="submit" class="btn-primary">Request Appointment</button>
+              <a class="btn-secondary" href="https://wa.me/919876543210?text=Hello%20Dr.%20Abhisek%2C%20I%27d%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener">WhatsApp</a>
+            </div>
+            <div id="formMsg" class="small" role="status" aria-live="polite" style="margin-top:8px"></div>
+          </form>
+        </div>
+        <div class="card" id="contact">
+          <h2>Contact & Location</h2>
+          <p class="small muted">123 Health Avenue, Your City, Your State 000000</p>
+          <div class="icons-row" style="margin:8px 0">
+            <a class="pill" href="tel:+919876543210" aria-label="Call clinic">📞 +91 98765 43210</a>
+            <a class="pill" href="mailto:appointments@abhisekmed.com">✉️ appointments@abhisekmed.com</a>
+            <a class="pill" href="https://maps.google.com/?q=123+Health+Avenue+Your+City" target="_blank" rel="noopener">📍 Get Directions</a>
+          </div>
+          <div class="small muted">Emergency? Please call your local emergency services.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container" style="display:flex; justify-content:space-between; gap:12px; flex-wrap: wrap">
+      <div>© <span id="year"></span> Dr. Abhisek. All rights reserved.</div>
+      <div class="small">
+        <a href="#" id="privacyLink">Privacy</a> • <a href="#" id="termsLink">Terms</a> • <a href="#" id="licenseLink">MIT License</a>
+      </div>
+    </div>
+  </footer>
+
+  <dialog id="legalDialog" style="border:none; border-radius:14px; padding:0; max-width: 720px; width: 92%; color: inherit; background: var(--card); box-shadow: var(--shadow)">
+    <div style="padding:18px 18px 0; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid color-mix(in oklab, var(--muted), transparent 70%)">
+      <strong>Legal</strong>
+      <form method="dialog">
+        <button class="icon-btn" aria-label="Close">✕</button>
+      </form>
+    </div>
+    <div style="padding:16px 18px; max-height: 60vh; overflow:auto">
+      <p class="small muted">This website provides general medical information and does not replace professional medical advice. For emergencies, call local emergency numbers.</p>
+      <p class="small muted">By using this site, you agree to basic cookie-less analytics (if enabled) and consent to communication via the contact details you provide.</p>
+      <p class="small muted">License: MIT. Content © Dr. Abhisek.</p>
+    </div>
+  </dialog>
+
+  <script>
+    // Theme persistence
+    (function(){
+      const preferred = localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      if(preferred === 'light') document.documentElement.setAttribute('data-theme','light');
+      document.getElementById('themeToggle').addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        if(current === 'light') document.documentElement.setAttribute('data-theme','light');
+        else document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', current);
+      });
+    })();
+
+    // Mobile menu
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if(menuToggle){
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('open');
+      });
+      mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+    }
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Print profile/info
+    const printBtn = document.getElementById('printProfile');
+    const printInfo = document.getElementById('printInfo');
+    if(printBtn) printBtn.addEventListener('click', () => window.print());
+    if(printInfo) printInfo.addEventListener('click', () => window.print());
+
+    // Appointment form mailto
+    const apptForm = document.getElementById('apptForm');
+    const formMsg = document.getElementById('formMsg');
+    if(apptForm){
+      apptForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const type = document.getElementById('type').value;
+        const date = document.getElementById('date').value;
+        const time = document.getElementById('time').value;
+        const reason = document.getElementById('reason').value.trim();
+
+        if(!name || !phone){
+          formMsg.textContent = 'Please provide your name and phone number.';
+          formMsg.style.color = '#f59e0b';
+          return;
+        }
+        const subject = encodeURIComponent(`Appointment Request from ${name}`);
+        const lines = [
+          `Name: ${name}`,
+          `Phone: ${phone}`,
+          `Email: ${email || '-'}`,
+          `Consult Type: ${type}`,
+          `Preferred: ${date || '-'} ${time || ''}`.trim(),
+          `Reason: ${reason || '-'}`
+        ];
+        const body = encodeURIComponent(lines.join('\n'));
+        const mailto = `mailto:appointments@abhisekmed.com?subject=${subject}&body=${body}`;
+        formMsg.textContent = 'Opening your email app... If it does not open, please email appointments@abhisekmed.com.';
+        formMsg.style.color = 'var(--muted)';
+        window.location.href = mailto;
+      });
+    }
+
+    // Legal modal links
+    const legalDialog = document.getElementById('legalDialog');
+    document.getElementById('privacyLink').addEventListener('click', (e)=>{ e.preventDefault(); legalDialog.showModal(); });
+    document.getElementById('termsLink').addEventListener('click', (e)=>{ e.preventDefault(); legalDialog.showModal(); });
+    document.getElementById('licenseLink').addEventListener('click', (e)=>{ e.preventDefault(); legalDialog.showModal(); });
+
+    // Accessibility: focus hash
+    if(window.location.hash){
+      const el = document.querySelector(window.location.hash);
+      if(el) el.setAttribute('tabindex','-1');
+    }
+  </script>
+
+  <style media="print">
+    header.nav, .cta a[href^="https://wa.me"], .mobile-toggle, #themeToggle, footer, #legalDialog { display: none !important }
+    body { background: white; color: #111 }
+    .card, .stat, .pill { box-shadow: none !important; border: 1px solid #ddd !important; background: #fff !important }
+  </style>
+</body>
+</html>
